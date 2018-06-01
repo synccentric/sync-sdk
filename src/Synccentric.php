@@ -23,7 +23,7 @@ class Synccentric
         $this->client = new ApiClient($token, $endpoint);
     }
 
-    public function listProducts($options = [])
+    public function listProducts(array $options = [])
     {
         $body = $this->client->get('/api/v3/products', [], $options);
 
@@ -32,7 +32,7 @@ class Synccentric
         });
     }
 
-    public function listProduct($id = null, $options = [])
+    public function listProduct($id = null, array $options = [])
     {
         if ($id === null) {
             throw new SynccentricArgumentException('You must specify the id of the product.');
@@ -64,6 +64,13 @@ class Synccentric
     public function productSearchStatus(array $options = [])
     {
         $body = $this->client->get('/api/v3/product_search/status', [], $options);
+
+        return new BaseModel([], $body);
+    }
+
+    public function cancelProductSearch(array $options = [])
+    {
+        $body = $this->client->post('/api/v3/product_search/cancel', [], $options);
 
         return new BaseModel([], $body);
     }
