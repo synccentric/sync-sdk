@@ -27,7 +27,11 @@ class Synccentric
     {
         $body = $this->client->get('/api/v3/products', [], $options);
 
-        return new ListResponse($body, function($entry) {
+        if (! empty($options['downloadable']) && $options['downloadable'] === true) {
+            return new BaseModel([], $body);
+        }
+
+        return new ListResponse($body, function ($entry) {
             return new Product($entry);
         });
     }
@@ -45,7 +49,7 @@ class Synccentric
 
     public function import(array $options)
     {
-        if(! isset($options['identifiers'])) {
+        if (! isset($options['identifiers'])) {
             throw new SynccentricArgumentException('You must specify the identifiers');
         }
 
