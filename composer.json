@@ -1,0 +1,23 @@
+{
+	"name": "synccentric/sync-sdk",
+	"description": "SDK for v3.synccentric.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Keith Allen",
+			"email": "keith@synccentric.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"guzzlehttp/guzzle": "^6.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^6.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"SyncSDK\\": "src/"
+		}
+	}
+}
