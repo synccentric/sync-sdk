@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Keith Allen",
-			"email": "keith@synccentric.com"
+			"name": "Synccentric Inc.",
+			"email": "info@synccentric.com"
 		}
 	],
 	"minimum-stability": "dev",

@@ -4,14 +4,27 @@ namespace SyncSDK\Model;
 
 class Error
 {
-    private $id;
-
-    private $title;
-
+    /**
+     * @var mixed
+     */
     private $detail;
 
-    public function __construct(array $error) {
-        $this->id = $error['id'];
+    /**
+     * @var mixed
+     */
+    private $id;
+
+    /**
+     * @var mixed
+     */
+    private $title;
+
+    /**
+     * @param array $error
+     */
+    public function __construct(array $error)
+    {
+        $this->id    = $error['id'];
         $this->title = $error['title'];
 
         if (isset($error['detail'])) {
@@ -19,15 +32,27 @@ class Error
         }
     }
 
-    public function getId() {
+    /**
+     * @return mixed
+     */
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
         return $this->title;
-    }
-
-    public function getDetail() {
-        return $this->detail;
     }
 }

@@ -4,10 +4,16 @@ namespace SyncSDK\Model;
 
 class Product extends BaseModel
 {
-	private static $READONLYFIELDS = [];
+    /**
+     * @var array
+     */
+    private static $READONLYFIELDS = [];
 
-	public function __construct(array $properties = [])
-	{
-		parent::__construct(self::$READONLYFIELDS, $properties);
-	}
+    /**
+     * @param array $properties
+     */
+    public function __construct(array $properties = [])
+    {
+        parent::__construct(self::$READONLYFIELDS, $properties);
+    }
 }
