@@ -4,37 +4,60 @@ namespace SyncSDK\Model;
 
 class BaseModel
 {
-	private $properties;
-	private $readOnlyProperties;
+    /**
+     * @var mixed
+     */
+    private $properties;
 
-	public function __construct(array $readOnlyProperties = [], array $properties = [])
-	{
-		$this->readOnlyProperties = $readOnlyProperties;
-		$this->properties = $properties;
-	}
+    /**
+     * @var mixed
+     */
+    private $readOnlyProperties;
 
-	public function __get($key)
-	{
-		if ($this->__isset($key)) {
-			return $this->properties[$key];
-		}
+    /**
+     * @param array $readOnlyProperties
+     * @param array $properties
+     */
+    public function __construct(array $readOnlyProperties = [], array $properties = [])
+    {
+        $this->readOnlyProperties = $readOnlyProperties;
+        $this->properties         = $properties;
+    }
 
-		return null;
-	}
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        if ($this->__isset($key)) {
+            return $this->properties[$key];
+        }
 
-	public function __isset($key)
-	{
-		return isset($this->properties[$key]);
-	}
+        return null;
+    }
 
-	public function getProperties()
-	{
-		return $this->properties;
-	}
+    /**
+     * @param $key
+     */
+    public function __isset($key)
+    {
+        return isset($this->properties[$key]);
+    }
 
-	public function getAttributes()
-	{
-		return $this->attributes;
-	}
+    /**
+     * @return mixed
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
 }

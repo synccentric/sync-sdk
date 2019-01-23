@@ -4,13 +4,21 @@ namespace SyncSDK\Exceptions;
 
 class SynccentricArgumentException extends SynccentricException
 {
-	public function __construct($message, $code = null, \Exception $previous = null)
-	{
-		parent::__construct($message, $code, $previous);
-	}
+    /**
+     * @param $message
+     * @param $code
+     * @param null\Exception $previous
+     */
+    public function __construct($message, $code = null, \Exception $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 
-	public function getErrorResponse()
-	{
-		return $this->message;
-	}
+    /**
+     * @return mixed
+     */
+    public function getErrorResponse()
+    {
+        return $this->message;
+    }
 }

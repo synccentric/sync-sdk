@@ -6,21 +6,20 @@
 require_once 'vendor/autoload.php';
 
 use SyncSDK\Synccentric;
-use SyncSDK\Adapter\GuzzleHttpAdapter;
 
 $token = 'your-synccentric-token';
 
 $client = new Synccentric($token);
 
-Product Search
+//Product Search
 try {
-	$search = $client->productSearch();
+    $search = $client->productSearch();
 } catch (\SyncSDK\Exceptions\SynccentricException $e) {
-	$errors = $e->getErrorResponse();
+    $errors = $e->getErrorResponse();
 
-	print_r($errors);
+    print_r($errors);
 
-	die("\n");
+    die("\n");
 }
 
 $response = $search->getProperties();

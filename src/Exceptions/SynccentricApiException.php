@@ -6,17 +6,27 @@ use SyncSDK\Response\ErrorResponse;
 
 class SynccentricApiException extends SynccentricException
 {
-	private $errorResponse;
+    /**
+     * @var mixed
+     */
+    private $errorResponse;
 
-	public function __construct(ErrorResponse $errorResponse, \Exception $previous)
-	{
-		parent::__construct($errorResponse[0]->getId(), null, $previous);
+    /**
+     * @param ErrorResponse $errorResponse
+     * @param \Exception $previous
+     */
+    public function __construct(ErrorResponse $errorResponse, \Exception $previous)
+    {
+        parent::__construct($errorResponse[0]->getId(), null, $previous);
 
-		$this->errorResponse = $errorResponse;
-	}
+        $this->errorResponse = $errorResponse;
+    }
 
-	public function getErrorResponse()
-	{
-		return $this->errorResponse;
-	}
+    /**
+     * @return mixed
+     */
+    public function getErrorResponse()
+    {
+        return $this->errorResponse;
+    }
 }
